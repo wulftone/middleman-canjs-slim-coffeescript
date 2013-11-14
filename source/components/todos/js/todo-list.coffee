@@ -1,15 +1,6 @@
 Agg.Todo.List = Agg.Todo.List.extend
 
 
-  map: (func) ->
-    list = new Agg.Todo.List
-
-    @each (el) ->
-      list.push el if func(el)
-
-    list
-
-
   activeCount: ->
     @active().length
 
@@ -19,10 +10,10 @@ Agg.Todo.List = Agg.Todo.List.extend
 
 
   active: ->
-    @map (todo) ->
+    @filter (todo) ->
       todo unless todo.attr 'completed'
 
 
   completed: ->
-    @map (todo) ->
+    @filter (todo) ->
       todo if todo.attr 'completed'
