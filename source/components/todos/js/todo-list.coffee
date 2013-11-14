@@ -20,3 +20,8 @@ Agg.Todo.List = Agg.Todo.List.extend
   completed: ->
     @filter (todo) ->
       todo if todo.attr 'completed'
+
+
+  destroy: ->
+    @each (todo) ->
+      todo.destroy() # This might make multiple calls to the server, which wouldn't be ideal.

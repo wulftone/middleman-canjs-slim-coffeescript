@@ -30,12 +30,20 @@ can.Component.extend
 
     clearCompletedTodos: ->
       todos = @attr("todos").completed()
+      todos.destroy()
+
+
+    toggleAllTodos: (context, el, e) ->
+      state = el.is ':checked'
+      todos = @attr "todos"
+
       todos.each (todo) ->
-        todo.destroy() # This might make multiple calls to the server, which wouldn't be ideal.
+        todo.attr 'completed', state
 
 
   events:
-    "{Agg.Todo} created": (Todo, ev, newTodo) ->
+    "{Agg.Todo} created": (Todo, e, newTodo) ->
+      # Put the new todo at the top of the list
       @scope.attr("todos").unshift newTodo
 
 
