@@ -22,5 +22,5 @@ script type="text/mustache" id="todos-component-template"
           li="{{{ filterLink 'Active' 'active' }}}"
           li="{{{ filterLink 'Completed' 'completed' }}}"
 
-        button#clear-completed can-click=''
-          | Clear completed (1)
+        button#clear-completed can-click='clearCompletedTodos'
+          ="Clear completed ({{ todos.completedCount }})"

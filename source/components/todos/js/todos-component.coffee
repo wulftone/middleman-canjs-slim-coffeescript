@@ -28,6 +28,12 @@ can.Component.extend
         return todos
 
 
+    clearCompletedTodos: ->
+      todos = @attr("todos").completed()
+      todos.each (todo) ->
+        todo.destroy()
+
+
   events:
     "{Agg.Todo} created": (Todo, ev, newTodo) ->
       @scope.attr("todos").unshift newTodo
