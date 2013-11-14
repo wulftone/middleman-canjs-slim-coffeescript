@@ -1,0 +1,26 @@
+script type="text/mustache" id="todos-component-template"
+  todos
+    section#todoapp
+
+      header#header
+        h1 todos!
+        todos-create
+
+      section#main
+
+        input#toggle-all type="checkbox"
+          label for="toggle-all"
+          todos-list todos="todosToShow"
+
+      footer#footer
+        span#todo-count
+          strong=>"{{todos.activeCount}}"
+          | items left
+
+        ul#filters
+          li="{{{ filterLink 'All' 'all' }}}"
+          li="{{{ filterLink 'Active' 'active' }}}"
+          li="{{{ filterLink 'Completed' 'completed' }}}"
+
+        button#clear-completed
+          | Clear completed (1)

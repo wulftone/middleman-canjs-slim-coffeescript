@@ -1,0 +1,11 @@
+script type="text/mustache" id="todos-list-template"
+  ul#todo-list
+    ="{{#each todos}}"
+    li class="todo {{#completed}}completed{{/completed}} {{#editing}}editing{{/editing}}"
+      .view
+        input.toggle type="checkbox" can-value="completed"
+          label can-click="editTodo" ="{{name}}"
+          button.destroy can-click="destroy"
+
+      input.edit type="text" value="{{name}}" can-input="inputTodo" can-enter="updateTodo" can-blur="updateTodo"
+    ="{{/each}}"

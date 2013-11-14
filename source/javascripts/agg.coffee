@@ -1,0 +1,3 @@
+root = exports ? @
+
+root.Agg = {}
