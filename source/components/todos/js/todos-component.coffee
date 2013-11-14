@@ -31,7 +31,7 @@ can.Component.extend
     clearCompletedTodos: ->
       todos = @attr("todos").completed()
       todos.each (todo) ->
-        todo.destroy()
+        todo.destroy() # This might make multiple calls to the server, which wouldn't be ideal.
 
 
   events:
