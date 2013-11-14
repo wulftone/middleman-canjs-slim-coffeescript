@@ -1,3 +1,6 @@
+###
+Agg.Todo is a can.Model, so this is a can.Model.List.
+###
 Agg.Todo.List = Agg.Todo.List.extend
 
 
