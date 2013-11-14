@@ -1,6 +1,6 @@
 script type="text/mustache" id="todos-list-template"
   ul#todo-list
-    ="{{#each todos}}"
+    ="{{#todos}}"
     li class="todo {{#completed}}completed{{/completed}} {{#editing}}editing{{/editing}}"
       .view
         input.toggle type="checkbox" can-value="completed"
@@ -8,4 +8,4 @@ script type="text/mustache" id="todos-list-template"
           button.destroy can-click="destroy"
 
       input.edit type="text" value="{{name}}" can-input="inputTodo" can-enter="updateTodo" can-blur="updateTodo"
-    ="{{/each}}"
+    ="{{/todos}}"
